@@ -27,8 +27,7 @@ navigation: # Navigation links
 tagline:
   Aqui você encontrará assuntos referente a Data Science, Machine Learning e mais...
 
-#hero_img: posts/sleek_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
-hero_img: "https://dl.dropbox.com/s/c12px0x9rz3l060/home_lg.jpg?dl=0"
+hero_img: posts/home_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
 email: nilson.cunhan@gmail.com # email for form submission
 
