@@ -1,14 +1,14 @@
-<svg width="90" height="30" xmlns="http://www.w3.org/2000/svg">
+<svg width="47" height="14.999999999999998" xmlns="http://www.w3.org/2000/svg">
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
  <g>
   <title>background</title>
-  <rect fill="#fff" id="canvas_background" height="32" width="92" y="-1" x="-1"/>
+  <rect fill="#fff" id="canvas_background" height="17" width="49" y="-1" x="-1"/>
   <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
    <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
   </g>
  </g>
  <g>
   <title>Layer 1</title>
-  <text stroke="#000" transform="matrix(1.3005869388580322,0,0,1.294717788696289,0.2911935970187187,1.4183293581008911) " xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="26" id="svg_5" y="19.423066" x="-0.961466" stroke-width="0" fill="#444444">Nilson</text>
+  <text stroke="#000" transform="matrix(1.7741484669771808,0,0,1.7833125592323142,0.14128734522202713,1.4978608542677376) " xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="10" id="svg_6" y="6.991016" x="-0.472676" stroke-width="0" fill="#444444">Nilson</text>
  </g>
 </svg>
