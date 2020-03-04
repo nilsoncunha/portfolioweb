@@ -1,0 +1,14 @@
+<svg width="200" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="42" width="202" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: move;" font-weight="bold" stroke="#000" transform="rotate(-0.18387551605701447 100.00103759765896,20.00000381470027) matrix(1.3578593283911355,0,0,1.6229675686091378,-34.84076240127624,-26.007014403517186) " xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="24" id="svg_1" y="36.961064" x="26.503401" stroke-width="0" fill="#000000">Nilson Cunha</text>
+ </g>
+</svg>
