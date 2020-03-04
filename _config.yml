@@ -27,13 +27,15 @@ navigation: # Navigation links
 tagline:
   Aqui você encontrará assuntos referente a Data Science, Machine Learning e mais...
 
-hero_img: posts/sleek_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
+#hero_img: posts/sleek_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
+hero_img: "https://dl.dropbox.com/s/c12px0x9rz3l060/home_lg.jpg?dl=0"
 
 email: nilson.cunhan@gmail.com # email for form submission
 
 #twitter_username: jan_czizikow # replace with your_twitter_username or comment to remove link from footer
 github_username:  nilsoncunha # replace with your_github_username or comment to remove link from footer
 instagram_username: nilsoncunhan # replace with your_instagram_username or comment to remove link from footer
+linkedin_username: nilsoncunha # replace with your_instagram_username or comment to remove link from footer
 
 disqus:
   #shortname: janczizikow # to enable comments replace with your_disqus_shortname
