@@ -11,14 +11,6 @@ Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, usando a 
 
 A sintaxe base que utilizaremos na maior parte do tempo é `db.collection.funcao()`
 
-* Listando os bancos já existentes
-{% highlight python %}
-> show dbs
-admin   0.000GB
-config  0.000GB
-local   0.000GB
-{% endhighlight %}
-
 * Criando ou selecionando um banco já existente (Comando é o mesmo)
 {% highlight python %}
 > use portfolio
@@ -99,15 +91,7 @@ Quando executamos o código acima ele nos trás os dados em linha, mas podemos u
 ...
 {% endhighlight %}
 
-Perceba que, quando inserimos os dados em nossa _collection_ utilizamos apenas as chaves `nome`, `cidade` e `estado`, porém agora está aparecendo um novo campo `_id`. Esse campo o _Mongo_ se encarrega de colocar implicitamente, caso não o informamos. Para adicionar um `id` é bem simples
-{% highlight python %}
-> db.dados.insert({'_id': 1, 'nome': 'Fulano'})
-WriteResult({ "nInserted" : 1 })
-> db.dados.find()
-{ "_id" : 1, "nome" : "Fulano" }
-{% endhighlight %}
-
-Agora vamos retornar os dados selecionando apenas as chaves que queremos exibir. Nossa estrutura se manteve `db.collection.funcao({})`, porém adicionamos ao final uma nova condição em que passamos `'chave': 1 ou true` para exibir e `'chave': 0 ou false` para ocultar. No caso informamos para exibir a chave _'nome'_ e ocultar a chave _'_id'_.
+Vamos retornar os dados selecionando apenas as chaves que queremos exibir. Nossa estrutura se manteve `db.collection.funcao({})`, porém adicionamos ao final uma nova condição em que passamos `'chave': 1 ou true` para exibir e `'chave': 0 ou false` para ocultar. No caso informamos para exibir a chave _'nome'_ e ocultar a chave _'_id'_.
 {% highlight python %}
 > db.times.find({}, {'nome': 1, '_id': 0})
 { "nome" : "Athletico Paranaense" }
@@ -117,9 +101,6 @@ Agora vamos retornar os dados selecionando apenas as chaves que queremos exibir.
 
 Para retornar os dados filtrando por um valor específico a sintaxe básica é `db.collection.find({chave: valor})`.
 {% highlight python %}
-> db.times.find({'nome': 'Atlético Mineiro'})
-{ "_id" : ObjectId("5e627dccbc5eb4b14d51a418"), "nome" : "Atlético Mineiro", "cidade" : "Belo Horizonte", "estado" : "Minas Gerais" }
-
 > db.times.find({'cidade': 'Porto Alegre'})
 { "_id" : ObjectId("5e627dccbc5eb4b14d51a422"), "nome" : "Grêmio", "cidade" : "Porto Alegre", "estado" : "Rio Grande do Sul" }
 { "_id" : ObjectId("5e627dccbc5eb4b14d51a423"), "nome" : "Internacional", "cidade" : "Porto Alegre", "estado" : "Rio Grande do Sul" }
@@ -140,4 +121,21 @@ Para isso temos que utilizar expressão regular para realizar a consulta
 
 > db.times.find({'nome': {$regex: 'Vasco'}}, {'_id': false, 'nome': 1, 'estado': true})
 { "nome" : "Vasco da Gama", "estado" : "Rio de Janeiro" }
+{% endhighlight %}
+
+Passamos o valor da chave com a inicial maíuscula, se tentarmos minúscula não teriamos retorno
+{% highlight python %}
+> db.times.find({'nome': /vasco/}, {'_id': 0})
+>
+{% endhighlight %}
+
+Para normalizar passamos o parâmetro `i` ou incluímos o parâmetro `$options: 'i'`
+{% highlight python %}
+> db.times.find({'nome': /vasco/i}, {'_id': 0})
+{ "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
+
+# ou 
+
+> db.times.find({'nome': {'$regex': 'vasco', '$options': 'i'}}, {'_id': 0})
+{ "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
 {% endhighlight %}
