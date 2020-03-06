@@ -10,6 +10,12 @@ Quem nunca esqueceu um código e perdeu algum tempo para conseguir encontar como
 Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais especificamente usando a bibloteca `pymongo`.
 
 A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
+```
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+```
 
 * Listando os bancos já existentes
 {% highlight python %}
