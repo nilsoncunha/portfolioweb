@@ -10,6 +10,8 @@ Gosto do que viu? Tem alguma dica, crítica ou sugestão?
 
 Até logo!
 
+<br><br>
+
 {% include form.html %}
 
 {% include modal.html %}
