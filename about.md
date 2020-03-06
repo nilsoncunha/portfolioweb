@@ -12,4 +12,6 @@ Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito val
 * Acelera Dev Data Science - Codenation _(12/2019)_
 * Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
 
+<br><br>
+
 Se quiser saber mais é só acessar o meu [linkedin](https://www.linkedin.com/in/nilsoncunhan/)
