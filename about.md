@@ -11,7 +11,3 @@ Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito val
 * Data Science de A a Z - Udemy _(07/2019)_
 * Acelera Dev Data Science - Codenation _(12/2019)_
 * Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
-
-### Contatos:
-* e-mail - [nilson.cunhan@gmail.com](mailto:nilson.cunhan@gmail.com) ou através da página de [contato](https://nilsoncunha.github.io/portfolioweb/contact/)
-* LinkedIn - [https://www.linkedin.com/in/nilsoncunhan/](https://www.linkedin.com/in/nilsoncunhan/)
