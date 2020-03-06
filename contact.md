@@ -8,7 +8,7 @@ Gosto do que viu? Tem alguma dica, crítica ou sugestão?
 
 É só preencher o formulário ou me [enviar um e-mail](mailto:{{site.email}}).
 
-Até logo! :wink:
+Até logo!
 
 {% include form.html %}
 
