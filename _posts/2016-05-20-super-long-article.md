@@ -28,13 +28,13 @@ switched to db portfolio
 * Criando a collecion
     1. _Passando o parâmetro do createCollection('nome_collection')
     2. _Já inserindo os dados na collection
-```
+{% highlight python %}
 > db.createCollection("times")
 { "ok" : 1 }
 
 > db.dados.insert({"nome": "Ciclano", "rua": "Logo ali", "bairro": "Bom começo"})
 WriteResult({ "nInserted" : 1 })
-```
+{% endhighlight %}
 
 {% highlight ruby %} def print_hi(name) puts "Hi, #{name}" end print_hi('Tom') #=> prints 'Hi, Tom' to STDOUT. {% endhighlight %}
 {% highlight python %} def print_hi(name) return "Hi, #{name}" print_hi('Tom') {% endhighlight %}
@@ -55,7 +55,7 @@ true
 * Inserindo dados em uma collection
     1. _Único dado
     2. _Vários dados em uma mesma collection. Passamos uma lista de dados.
-```
+```highlight
 > db.times.insert({'nome': 'Athletico Paranaense', 'cidade': 'Curitiba', 'estado': 'Paraná'})
 WriteResult({ "nInserted" : 1 })
 
