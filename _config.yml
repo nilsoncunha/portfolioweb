@@ -3,7 +3,8 @@ encoding: UTF-8
 title: Nilson Cunha # your site title
 author: nilsoncunha # You :P
 description: # Meta description of Homepage
-  Neste portfólio terá meus projetos, análises e estudos relacionado a Ciência de Dados, aplicação de Machine Learning, entre outros.
+  Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado a Ciência de Dados, 
+  aplicação de Machine Learning, entre outros.
 baseurl: "/portfolioweb" # the subpath of your site, e.g. /blog
 url: "https://nilsoncunha.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -21,8 +22,8 @@ social:
 # THEME SETTINGS
 navigation: # Navigation links
   - {name: 'Início', link: '/'}
-  - {name: 'Sobre', link: '/about'}
-  - {name: 'Contato', link: '/contact'}
+  - {name: 'Sobre', link: '/sobre'}
+  - {name: 'Contato', link: '/contato'}
 
 tagline:
   Aqui você encontrará assuntos referente a Data Science, Machine Learning e mais...
