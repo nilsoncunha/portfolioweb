@@ -12,18 +12,18 @@ Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais espe
 A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
 
 * Listando os bancos já existentes
-```
+{% highlight python %}
 > show dbs
 admin   0.000GB
 config  0.000GB
 local   0.000GB
-```
+{% endhighlight %}
 
 * Criando ou selecionando um banco já existente (Comando é o mesmo)
-```
+{% highlight python %}
 > use portfolio
 switched to db portfolio
-```
+{% endhighlight %}
 
 * Criando a collecion
 {% highlight python %}
@@ -37,17 +37,17 @@ WriteResult({ "nInserted" : 1 })
 {% endhighlight %}
 
 * Consultando as collections criadas
-```
+{% highlight python %}
 > show collections
 dados
 times
-```
+{% endhighlight %}
 
 * Excluindo uma collection
-```
+{% highlight python %}
 > db.dados.drop()
 true
-```
+{% endhighlight %}
 
 * Inserindo dados em uma collection
 {% highlight python %}
@@ -80,6 +80,6 @@ WriteResult({ "nInserted" : 1 })
 {% endhighlight %}
  
  * Listando os dados 
-```
+{% highlight python %}
 db.times.find() ou db.times.find({})
-```
+{% endhighlight %}
