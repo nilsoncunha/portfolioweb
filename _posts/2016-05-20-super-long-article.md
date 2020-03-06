@@ -9,7 +9,7 @@ Quem nunca esqueceu um código e perdeu algum tempo para conseguir encontar como
 
 Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, usando a bibloteca `pymongo`.
 
-A sintaxe base no _Mongo_ é `db.collection.funcao()`
+A sintaxe base que utilizaremos na maior parte do tempo é `db.collection.funcao()`
 
 * Listando os bancos já existentes
 {% highlight python %}
@@ -55,7 +55,7 @@ true
 > db.times.insert({'nome': 'Athletico Paranaense', 'cidade': 'Curitiba', 'estado': 'Paraná'})
 WriteResult({ "nInserted" : 1 })
 
-# _Vários dados em uma mesma collection. Passamos uma lista de dados.
+# _Vários dados em uma mesma collection. Passamos uma lista de dados. 
 > db.times.insert([
     {nome: 'Atlético Goianiense', cidade: 'Goiânia', estado: 'Goiás'},
     {nome: 'Atlético Mineiro', cidade: 'Belo Horizonte', estado: 'Minas Gerais'},
@@ -79,7 +79,7 @@ WriteResult({ "nInserted" : 1 })
  ])
 {% endhighlight %}
  
- * Listando todos os dados 
+ * Listando os dados 
 {% highlight python %}
 > db.times.find() # ou db.times.find({})
 { "_id" : ObjectId("5e627dc3bc5eb4b14d51a416"), "nome" : "Athletico Paranaense", "cidade" : "Curitiba", "estado" : "Paraná" }
@@ -99,14 +99,7 @@ Quando executamos o código acima ele nos trás os dados em linha, mas podemos u
 ...
 {% endhighlight %}
 
-Para retornar os dados filtrando por um campo específico a sintaxe básica é `db.collection.find({chave: valor})`.
-{% highlight python %}
-> db.times.find({'nome': 'Atlético Mineiro'})
-{ "_id" : ObjectId("5e627dccbc5eb4b14d51a418"), "nome" : "Atlético Mineiro", "cidade" : "Belo Horizonte", "estado" : "Minas Gerais" }
-{% endhighlight %}
-
 Perceba que, quando inserimos os dados em nossa _collection_ utilizamos apenas as chaves `nome`, `cidade` e `estado`, porém agora está aparecendo um novo campo `_id`. Esse campo o _Mongo_ se encarrega de colocar implicitamente, caso não o informamos. Para adicionar um `id` é bem simples
-
 {% highlight python %}
 > db.dados.insert({'_id': 1, 'nome': 'Fulano'})
 WriteResult({ "nInserted" : 1 })
@@ -114,4 +107,37 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : 1, "nome" : "Fulano" }
 {% endhighlight %}
 
+Agora vamos retornar os dados selecionando apenas as chaves que queremos exibir. Nossa estrutura se manteve `db.collection.funcao({})`, porém adicionamos ao final uma nova condição em que passamos `'chave': 1 ou true` para exibir e `'chave': 0 ou false` para ocultar. No caso informamos para exibir a chave _'nome'_ e ocultar a chave _'_id'_.
+{% highlight python %}
+> db.times.find({}, {'nome': 1, '_id': 0})
+{ "nome" : "Athletico Paranaense" }
+{ "nome" : "Atlético Goianiense" }
+...
+{% endhighlight %}
 
+Para retornar os dados filtrando por um valor específico a sintaxe básica é `db.collection.find({chave: valor})`.
+{% highlight python %}
+> db.times.find({'nome': 'Atlético Mineiro'})
+{ "_id" : ObjectId("5e627dccbc5eb4b14d51a418"), "nome" : "Atlético Mineiro", "cidade" : "Belo Horizonte", "estado" : "Minas Gerais" }
+
+> db.times.find({'cidade': 'Porto Alegre'})
+{ "_id" : ObjectId("5e627dccbc5eb4b14d51a422"), "nome" : "Grêmio", "cidade" : "Porto Alegre", "estado" : "Rio Grande do Sul" }
+{ "_id" : ObjectId("5e627dccbc5eb4b14d51a423"), "nome" : "Internacional", "cidade" : "Porto Alegre", "estado" : "Rio Grande do Sul" }
+{% endhighlight %}
+
+Podemos observar que estamos incluindo todo o nome no valor da chave, se tentarmos retornar apenas com fragmento do nome não conseguiríamos.
+{% highlight python %}
+> db.times.find({'nome': 'Vasco'})
+>
+{% endhighlight %}
+
+Para isso temos que utilizar expressão regular para realizar a consulta
+{% highlight python %}
+> db.times.find({'nome': /Vasco/}, {'_id': false})
+{ "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
+
+# ou
+
+> db.times.find({'nome': {$regex: 'Vasco'}}, {'_id': false, 'nome': 1, 'estado': true})
+{ "nome" : "Vasco da Gama", "estado" : "Rio de Janeiro" }
+{% endhighlight %}
