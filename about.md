@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sobre
-permalink: /about/
+permalink: /sobre/
 ---
 
 Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles, foi com esse intuito que descidi iniciar a pós-graduação em Ciência de Dados e Big Data e aprofundar mais nessa área.
