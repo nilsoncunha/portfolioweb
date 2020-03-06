@@ -1,12 +1,88 @@
 ---
 layout: post
-title: "Some articles are just so long they deserve a really long title to see if things will break well"
+title: "Comandos uteis em MongoDB e Python"
 featured-img: shane-rounce-205187
-categories: [Sample, Guides]
+categories: [Python, MongoDB]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+Quem nunca esqueceu um código e perdeu algum tempo para conseguir encontar como fazer aquilo funcionar? Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais especificamente usando a bibloteca `pymongo`.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
+
+* Listando os bancos já existentes
+```
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+```
+
+* Criando ou selecionando um banco já existente (Comando é o mesmo)
+```
+> use portfolio
+switched to db portfolio
+```
+
+* Criando a collecion
+```
+- Passando o parâmetro do createCollection('nome_collection')
+
+> db.createCollection('times')
+{ "ok" : 1 }
+
+ou
+
+- Já inserindo os dados na collection
+> db.dados.insert({'nome': 'Ciclano', 'rua': 'Logo ali', 'bairro': 'Bom começo'})
+WriteResult({ "nInserted" : 1 })
+```
+
+* Consultando as collections criadas
+```
+> show collections
+dados
+times
+```
+
+* Excluindo uma collection
+```
+> db.dados.drop()
+true
+```
+
+* Inserindo dados em uma collection
+```
+- Único dado
+> db.times.insert({'nome': 'Athletico Paranaense', 'cidade': 'Curitiba', 'estado': 'Paraná'})
+WriteResult({ "nInserted" : 1 })
+
+- Vários dados em uma mesma collection. Passamos uma lista de dados.
+> db.times.insert([
+    {nome: 'Atlético Goianiense', cidade: 'Goiânia', estado: 'Goiás'},
+    {nome: 'Atlético Mineiro', cidade: 'Belo Horizonte', estado: 'Minas Gerais'},
+    {nome: 'Bahia', cidade: 'Salvador', estado: 'Bahia'},
+    {nome: 'Botafogo', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'},
+    {nome: 'Ceará', cidade: 'Fortaleza', estado: 'Ceará'},
+    {nome: 'Corinthians', cidade: 'São Paulo', estado: 'São Paulo'},
+    {nome: 'Coritiba', cidade: 'Curitiba', estado: 'Paraná'},
+    {nome: 'Flamengo', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'},
+    {nome: 'Fluminense', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'},
+    {nome: 'Fortaleza', cidade: 'Fortaleza', estado: 'Ceará'},
+    {nome: 'Goiás', cidade: 'Goiânia', estado: 'Goiás'},
+    {nome: 'Grêmio', cidade: 'Porto Alegre', estado: 'Rio Grande do Sul'},
+    {nome: 'Internacional', cidade: 'Porto Alegre', estado: 'Rio Grande do Sul'},
+    {nome: 'Palmeiras', cidade: 'São Paulo', estado: 'São Paulo'},
+    {nome: 'Red Bull Bragantino', cidade: 'Bragança Paulista', estado: 'São Paulo'},
+    {nome: 'Santos', cidade: 'Santos', estado: 'São Paulo'},
+    {nome: 'São Paulo', cidade: 'São Paulo', estado: 'São Paulo'},
+    {nome: 'Sport', cidade: 'Recife', estado: 'Pernambuco'},
+    {nome: 'Vasco da Gama', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'}
+ ])
+ ```
+ 
+ * Listando os dados 
+ ```
+ db.times.find() ou db.times.find({})
+ ```
