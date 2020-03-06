@@ -18,6 +18,7 @@ A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
 admin   0.000GB
 config  0.000GB
 local   0.000GB
+
 {% endhiglight %}
 
 * Criando ou selecionando um banco já existente (Comando é o mesmo)
@@ -25,6 +26,7 @@ local   0.000GB
 {% highlight python %}
 > use portfolio
 switched to db portfolio
+
 {% endhighlight %}
 
 * Criando a collecion
@@ -37,6 +39,7 @@ switched to db portfolio
 # _Já inserindo os dados na collection
 > db.dados.insert({"nome": "Ciclano", "rua": "Logo ali", "bairro": "Bom começo"})
 WriteResult({ "nInserted" : 1 })
+
 {% endhighlight %}
 
 * Consultando as collections criadas
@@ -45,6 +48,7 @@ WriteResult({ "nInserted" : 1 })
 > show collections
 dados
 times
+
 {% endhighlight %}
 
 * Excluindo uma collection
@@ -52,6 +56,7 @@ times
 {% highlight python %}
 > db.dados.drop()
 true
+
 {% endhighlight %}
 
 * Inserindo dados em uma collection
@@ -83,6 +88,7 @@ WriteResult({ "nInserted" : 1 })
     {nome: 'Sport', cidade: 'Recife', estado: 'Pernambuco'},
     {nome: 'Vasco da Gama', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'}
  ])
+ 
 {% endhighlight %}
  
  * Listando os dados 
