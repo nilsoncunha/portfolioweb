@@ -26,7 +26,8 @@ navigation: # Navigation links
   - {name: 'Contato', link: '/contato'}
 
 tagline:
-  Aqui você encontrará assuntos referente a Data Science, Machine Learning e mais...
+  Aqui você encontrará meus projetos, análises e estudos relacionado a Ciência de Dados, 
+  aplicação de Machine Learning, entre outros.
 
 hero_img: posts/home_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
