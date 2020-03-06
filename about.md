@@ -4,7 +4,7 @@ title: Sobre
 permalink: /sobre/
 ---
 
-Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles, foi com esse intuito que descidi iniciar a pós-graduação em Ciência de Dados e Big Data e aprofundar mais nessa área.
+Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles. Foi com esse intuito que descidi fazer cursos e iniciar a pós-graduação em Ciência de Dados e Big Data.
 
 * Graduação Tecnológica em Redes de computadores pela Faculdades Promove. _(06/2014)_
 * Graduação em Sistemas de informação pela Faculdades Promove *trancado*. _(12/2016)_
