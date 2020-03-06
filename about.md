@@ -1,13 +1,17 @@
 ---
 layout: page
-title: About
+title: Sobre
 permalink: /about/
 ---
 
-Sleek is a modern Jekyll theme focused on speed performance & SEO best practices. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/) or simply read the guide on how to [get started](/getting-started)
+Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles, foi com esse intuito que descidi iniciar a pós-graduação em Ciência de Dados e Big Data e aprofundar mais nessa área.
 
-You can find the source code for the Jekyll new theme at:
-[sleek](https://github.com/janczizikow/sleek)
+* Graduação Tecnológica em Redes de computadores pela Faculdades Promove. _(06/2014)_
+* Graduação em Sistemas de informação pela Faculdades Promove *trancado*. _(12/2016)_
+* Data Science de A a Z - Udemy _(07/2019)_
+* Acelera Dev Data Science - Codenation _(12/2019)_
+* Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
 
-You can find the source code for Jekyll at
-[jekyll](https://github.com/jekyll/jekyll)
+### Contatos:
+* e-mail - nilson.cunhan@gmail.com ou através da página de [contato](https://nilsoncunha.github.io/portfolioweb/contact/)
+* LinkedIn - https://www.linkedin.com/in/nilsoncunhan/
