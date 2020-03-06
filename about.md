@@ -14,4 +14,4 @@ Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito val
 
 ### Contatos:
 * e-mail - [nilson.cunhan@gmail.com](mailto:nilson.cunhan@gmail.com) ou através da página de [contato](https://nilsoncunha.github.io/portfolioweb/contact/)
-* LinkedIn - https://www.linkedin.com/in/nilsoncunhan/
+* LinkedIn - [https://www.linkedin.com/in/nilsoncunhan/](https://www.linkedin.com/in/nilsoncunhan/)
