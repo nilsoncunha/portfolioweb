@@ -36,6 +36,9 @@ switched to db portfolio
 WriteResult({ "nInserted" : 1 })
 ```
 
+{% highlight ruby %} def print_hi(name) puts "Hi, #{name}" end print_hi('Tom') #=> prints 'Hi, Tom' to STDOUT. {% endhighlight %}
+{% highlight python %} def print_hi(name) return "Hi, #{name}" print_hi('Tom') {% endhighlight %}
+
 * Consultando as collections criadas
 ```
 > show collections
