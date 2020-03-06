@@ -29,10 +29,10 @@ switched to db portfolio
     1. _Passando o parâmetro do createCollection('nome_collection')
     2. _Já inserindo os dados na collection
 ```
-> db.createCollection('times')
+> db.createCollection("times")
 { "ok" : 1 }
 
-> db.dados.insert({'nome': 'Ciclano', 'rua': 'Logo ali', 'bairro': 'Bom começo'})
+> db.dados.insert({"nome": "Ciclano", "rua": "Logo ali", "bairro": "Bom começo"})
 WriteResult({ "nInserted" : 1 })
 ```
 
