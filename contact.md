@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Contato
-permalink: /contato/
+permalink: /contact/
 ---
 
 Gosto do que viu? Tem alguma dica, crítica ou sugestão? 
