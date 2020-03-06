@@ -12,25 +12,20 @@ Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais espe
 A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
 
 * Listando os bancos já existentes
-
 {% highlight python %}
 > show dbs
 admin   0.000GB
 config  0.000GB
 local   0.000GB
-
-{% endhiglight %}
+{% endhighlight %}
 
 * Criando ou selecionando um banco já existente (Comando é o mesmo)
-
 {% highlight python %}
 > use portfolio
 switched to db portfolio
-
 {% endhighlight %}
 
 * Criando a collecion
-
 {% highlight python %}
 # _Passando o parâmetro do createCollection('nome_collection')
 > db.createCollection("times")
@@ -39,28 +34,22 @@ switched to db portfolio
 # _Já inserindo os dados na collection
 > db.dados.insert({"nome": "Ciclano", "rua": "Logo ali", "bairro": "Bom começo"})
 WriteResult({ "nInserted" : 1 })
-
 {% endhighlight %}
 
 * Consultando as collections criadas
-
 {% highlight python %}
 > show collections
 dados
 times
-
 {% endhighlight %}
 
 * Excluindo uma collection
-
 {% highlight python %}
 > db.dados.drop()
 true
-
 {% endhighlight %}
 
 * Inserindo dados em uma collection
-
 {% highlight python %}
 # _Único dado
 > db.times.insert({'nome': 'Athletico Paranaense', 'cidade': 'Curitiba', 'estado': 'Paraná'})
@@ -88,11 +77,9 @@ WriteResult({ "nInserted" : 1 })
     {nome: 'Sport', cidade: 'Recife', estado: 'Pernambuco'},
     {nome: 'Vasco da Gama', cidade: 'Rio de Janeiro', estado: 'Rio de Janeiro'}
  ])
- 
 {% endhighlight %}
  
  * Listando os dados 
- 
 {% highlight python %}
- db.times.find() ou db.times.find({})
+db.times.find() ou db.times.find({})
 {% endhighlight %}
