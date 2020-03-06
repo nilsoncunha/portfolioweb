@@ -12,15 +12,17 @@ Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais espe
 A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
 
 * Listando os bancos já existentes
-```
+```yaml
+---
 > show dbs
 admin   0.000GB
 config  0.000GB
 local   0.000GB
+---
 ```
 
 * Criando ou selecionando um banco já existente (Comando é o mesmo)
-```
+```yaml
 > use portfolio
 switched to db portfolio
 ```
