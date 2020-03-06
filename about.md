@@ -13,5 +13,5 @@ Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito val
 * Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
 
 ### Contatos:
-* e-mail - nilson.cunhan@gmail.com ou através da página de [contato](https://nilsoncunha.github.io/portfolioweb/contact/)
+* e-mail - [nilson.cunhan@gmail.com](mailto:nilson.cunhan@gmail.com) ou através da página de [contato](https://nilsoncunha.github.io/portfolioweb/contact/)
 * LinkedIn - https://www.linkedin.com/in/nilsoncunhan/
