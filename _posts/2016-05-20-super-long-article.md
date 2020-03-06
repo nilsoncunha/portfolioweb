@@ -7,9 +7,9 @@ categories: [Python, MongoDB]
 
 Quem nunca esqueceu um código e perdeu algum tempo para conseguir encontar como fazer aquilo funcionar? Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
 
-Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, mais especificamente usando a bibloteca `pymongo`.
+Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, usando a bibloteca `pymongo`.
 
-A sintaxe base é `db.collection.funcao()` o restante veremos mais a baixo.
+A sintaxe base no _Mongo_ é `db.collection.funcao()`
 
 * Listando os bancos já existentes
 {% highlight python %}
@@ -79,7 +79,39 @@ WriteResult({ "nInserted" : 1 })
  ])
 {% endhighlight %}
  
- * Listando os dados 
+ * Listando todos os dados 
 {% highlight python %}
-db.times.find() ou db.times.find({})
+> db.times.find() # ou db.times.find({})
+{ "_id" : ObjectId("5e627dc3bc5eb4b14d51a416"), "nome" : "Athletico Paranaense", "cidade" : "Curitiba", "estado" : "Paraná" }
+{ "_id" : ObjectId("5e627dccbc5eb4b14d51a417"), "nome" : "Atlético Goianiense", "cidade" : "Goiânia", "estado" : "Goiás" }
+...
 {% endhighlight %}
+
+Quando executamos o código acima ele nos trás os dados em linha, mas podemos utilizar `pretty()` para identar o retorno.
+{% highlight python %}
+> db.times.find().pretty()
+{
+        "_id" : ObjectId("5e627dc3bc5eb4b14d51a416"),
+        "nome" : "Athletico Paranaense",
+        "cidade" : "Curitiba",
+        "estado" : "Paraná"
+}
+...
+{% endhighlight %}
+
+Para retornar os dados filtrando por um campo específico a sintaxe básica é `db.collection.find({chave: valor})`.
+{% highlight python %}
+> db.times.find({'nome': 'Atlético Mineiro'})
+{ "_id" : ObjectId("5e627dccbc5eb4b14d51a418"), "nome" : "Atlético Mineiro", "cidade" : "Belo Horizonte", "estado" : "Minas Gerais" }
+{% endhighlight %}
+
+Perceba que, quando inserimos os dados em nossa _collection_ utilizamos apenas as chaves `nome`, `cidade` e `estado`, porém agora está aparecendo um novo campo `_id`. Esse campo o _Mongo_ se encarrega de colocar implicitamente, caso não o informamos. Para adicionar um `id` é bem simples
+
+{% highlight python %}
+> db.dados.insert({'_id': 1, 'nome': 'Fulano'})
+WriteResult({ "nInserted" : 1 })
+> db.dados.find()
+{ "_id" : 1, "nome" : "Fulano" }
+{% endhighlight %}
+
+
