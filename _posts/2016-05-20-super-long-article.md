@@ -27,14 +27,14 @@ switched to db portfolio
 
 * Criando a collecion
 ```
-- Passando o parâmetro do createCollection('nome_collection')
+Passando o parâmetro do createCollection('nome_collection')
 
 > db.createCollection('times')
 { "ok" : 1 }
 
 ou
 
-- Já inserindo os dados na collection
+Já inserindo os dados na collection
 > db.dados.insert({'nome': 'Ciclano', 'rua': 'Logo ali', 'bairro': 'Bom começo'})
 WriteResult({ "nInserted" : 1 })
 ```
@@ -54,11 +54,11 @@ true
 
 * Inserindo dados em uma collection
 ```
-- Único dado
+Único dado
 > db.times.insert({'nome': 'Athletico Paranaense', 'cidade': 'Curitiba', 'estado': 'Paraná'})
 WriteResult({ "nInserted" : 1 })
 
-- Vários dados em uma mesma collection. Passamos uma lista de dados.
+Vários dados em uma mesma collection. Passamos uma lista de dados.
 > db.times.insert([
     {nome: 'Atlético Goianiense', cidade: 'Goiânia', estado: 'Goiás'},
     {nome: 'Atlético Mineiro', cidade: 'Belo Horizonte', estado: 'Minas Gerais'},
