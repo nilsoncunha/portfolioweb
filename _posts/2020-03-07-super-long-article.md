@@ -5,13 +5,13 @@ featured-img: shane-rounce-205187
 categories: [Python, MongoDB]
 ---
 
-Quem nunca esqueceu um código e perdeu algum tempo para conseguir encontar como fazer aquilo funcionar? Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
+Quando começamos a utilizar uma nova ferramenta é comum nos primeiros momentos esquecermos um código e ter que procurar na documentação ou dar aquela _"Googada"_ para conseguir encontar como fazer aquilo novamente? Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
 
-Começaremos explorando os comandos do _MongoDB_ e depois do _Python_, usando a bibloteca `pymongo`.
+## MongoDB
 
-A sintaxe base que utilizaremos na maior parte do tempo é `db.collection.funcao()`
+A sintaxe base que utilizaremos na maior parte do tempo é `db.collection.funcao({})`
 
-* Criando ou selecionando um banco já existente (Comando é o mesmo)
+* Criando ou selecionando um banco já existente _(código é o mesmo)_
 {% highlight python %}
 > use portfolio
 switched to db portfolio
@@ -23,7 +23,9 @@ switched to db portfolio
 > db.createCollection("times")
 { "ok" : 1 }
 
-# _Já inserindo os dados na collection
+ou
+
+# _Criando já inserindo dados
 > db.dados.insert({"nome": "Ciclano", "rua": "Logo ali", "bairro": "Bom começo"})
 WriteResult({ "nInserted" : 1 })
 {% endhighlight %}
@@ -75,12 +77,8 @@ WriteResult({ "nInserted" : 1 })
 {% highlight python %}
 > db.times.find() # ou db.times.find({})
 { "_id" : ObjectId("5e627dc3bc5eb4b14d51a416"), "nome" : "Athletico Paranaense", "cidade" : "Curitiba", "estado" : "Paraná" }
-{ "_id" : ObjectId("5e627dccbc5eb4b14d51a417"), "nome" : "Atlético Goianiense", "cidade" : "Goiânia", "estado" : "Goiás" }
-...
-{% endhighlight %}
 
-Quando executamos o código acima ele nos trás os dados em linha, mas podemos utilizar `pretty()` para identar o retorno.
-{% highlight python %}
+# utilizando o `pretty()` para retornar no formato json.
 > db.times.find().pretty()
 {
         "_id" : ObjectId("5e627dc3bc5eb4b14d51a416"),
@@ -106,13 +104,7 @@ Para retornar os dados filtrando por um valor específico a sintaxe básica é `
 { "_id" : ObjectId("5e627dccbc5eb4b14d51a423"), "nome" : "Internacional", "cidade" : "Porto Alegre", "estado" : "Rio Grande do Sul" }
 {% endhighlight %}
 
-Podemos observar que estamos incluindo todo o nome no valor da chave, se tentarmos retornar apenas com fragmento do nome não conseguiríamos.
-{% highlight python %}
-> db.times.find({'nome': 'Vasco'})
->
-{% endhighlight %}
-
-Para isso temos que utilizar expressão regular para realizar a consulta
+Podemos observar que estamos incluindo todo o nome no valor da chave, se tentarmos retornar apenas com fragmento do nome não conseguiríamos, por exemplo: `db.times.find({'nome': 'Vasco'})`. Para isso temos que utilizar expressão regular para realizar a consulta
 {% highlight python %}
 > db.times.find({'nome': /Vasco/}, {'_id': false})
 { "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
@@ -123,13 +115,7 @@ Para isso temos que utilizar expressão regular para realizar a consulta
 { "nome" : "Vasco da Gama", "estado" : "Rio de Janeiro" }
 {% endhighlight %}
 
-Passamos o valor da chave com a inicial maíuscula, se tentarmos minúscula não teriamos retorno
-{% highlight python %}
-> db.times.find({'nome': /vasco/}, {'_id': 0})
->
-{% endhighlight %}
-
-Para normalizar passamos o parâmetro `i` ou incluímos o parâmetro `$options: 'i'`
+Se tentarmos realizar a busca com a letra minúscula no nome, `db.times.find({'nome': /vasco/}`, não teria o retorno. Para normalizar passamos o parâmetro `i` ou incluímos o parâmetro `$options: 'i'`
 {% highlight python %}
 > db.times.find({'nome': /vasco/i}, {'_id': 0})
 { "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
@@ -139,3 +125,90 @@ Para normalizar passamos o parâmetro `i` ou incluímos o parâmetro `$options: 
 > db.times.find({'nome': {'$regex': 'vasco', '$options': 'i'}}, {'_id': 0})
 { "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
 {% endhighlight %}
+
+Realizando update nos dados
+{% highlight python %}
+> db.times.update(
+    {'nome': "Atlético Mineiro"}, # filtrando pelo nome
+    {'$set': {'cidade': 'BH'}}
+)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+{% endhighlight %}
+
+Para consultas mais complexas temos que utilizar os operadores
+* Lógico
+    * $and
+    * $not
+    * $or
+        
+* Comparação
+    $gt - maior que
+    $gte - maior ou igual que
+    $lt - menor que
+    $lte - menor ou igual que
+    $in - esteja entre uma faixa de valores
+    $not - não seja o valor especificado
+
+Note que a estrutura da sintaxe é um pouco diferente.
+{% highlight python %}
+> db.times.find({
+    '$or': [
+        {'cidade': 'BH'},
+        {'cidade': 'Porto Alegre'}
+    ]
+})
+{% endhighlight %}
+
+## Python com MongoDB
+
+Veremos agora como utilizar o _Python_ com _Mongo_. Temos a parte básica que é a conexão com o banco
+{% highlight %}
+from pymongo import MongoClient
+import pprint  # Mesmo resultado do `pretty()`
+
+client = MongoClient('localhost', 27017)
+db = client['portfolio']
+collection = db['times']
+{% endhighlight %}
+
+A sintaxe que utilizamos no _Mongo_ será identica a que utilizaremos em _Python_, na maioria das vezes.
+
+* Retornando os dados
+{% highlight python %}
+query = collection.find()
+
+for n in query:  # iterando os dados
+    print(n)
+{% endhighlight %}
+
+* Utilizando operador lógico
+{% highlight python %}
+query = collection.find({
+    '$or': [
+        {'cidade': 'BH'},
+        {'cidade': 'Porto Alegre'}
+    ]
+})
+{% endhighlight %}
+
+* Utilizando expressão regular
+{% highlight python %}
+query = collection.find(
+    {'nome': 
+        {'$regex': 'Nac', '$options': 'i'}
+    },
+    {'_id': 0}
+)
+{% endhighlight %}
+
+Para realizarmos o update através do _Python_ utilizamos `update_one()` ou `update_many()`, caso utilizamos apenas `update()` recebemos a mensagem de que essa função foi descontinuada.
+{% highlight python %}
+query = collection.update_one(
+    {'cidade': 'BH'},
+    {'$set': {'cidade': 'Belo Horizonte'}}
+)
+{% endhighlight %}
+
+Então é isso, pessoal. Claro que não abordamos todas as funções relacionadas ao _MongoDB_, pois ficaria muito extenso e esse não era nosso intuito. 
+
+Nos vemos em uma próxima, até logo!
