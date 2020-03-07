@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comandos uteis em MongoDB e Python"
-featured-img: python_mongo
+featured-img:
 categories: [Python, MongoDB]
 ---
 
