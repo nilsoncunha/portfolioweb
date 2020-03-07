@@ -162,7 +162,7 @@ Note que a estrutura da sintaxe é um pouco diferente.
 ## Python com MongoDB
 
 Veremos agora como utilizar o _Python_ com _Mongo_. Temos a parte básica que é a conexão com o banco
-{% highlight %}
+{% highlight python %}
 from pymongo import MongoClient
 import pprint  # Mesmo resultado do `pretty()`
 
