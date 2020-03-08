@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Comandos uteis em MongoDB e Python"
+title: "Comandos úteis em MongoDB e Python"
 featured-img:
 categories: [Python, MongoDB]
 ---
 
-Quando começamos a utilizar uma nova ferramenta é comum nos primeiros momentos esquecermos um código e ter que procurar na documentação ou dar aquela _"Googada"_ para conseguir encontar como fazer aquilo novamente? Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
+Quando começamos a utilizar uma nova ferramenta é comum nos primeiros momentos esquecermos um código e termos que procurar na documentação ou dar aquela _"Googada"_ para conseguir encontar como fazer aquilo novamente. Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
 
 ## MongoDB
 
@@ -17,7 +17,7 @@ A sintaxe base que utilizaremos na maior parte do tempo é `db.collection.funcao
 switched to db portfolio
 {% endhighlight %}
 
-* Criando a collecion
+* Criando a collection
 {% highlight python %}
 # _Passando o parâmetro do createCollection('nome_collection')
 > db.createCollection("times")
@@ -111,11 +111,11 @@ Podemos observar que estamos incluindo todo o nome no valor da chave, se tentarm
 
 # ou
 
-> db.times.find({'nome': {$regex: 'Vasco'}}, {'_id': false, 'nome': 1, 'estado': true})
+> db.times.find({'nome': {'$regex': 'Vasco'}}, {'_id': false, 'nome': 1, 'estado': true})
 { "nome" : "Vasco da Gama", "estado" : "Rio de Janeiro" }
 {% endhighlight %}
 
-Se tentarmos realizar a busca com a letra minúscula no nome, `db.times.find({'nome': /vasco/}`, não teria o retorno. Para normalizar passamos o parâmetro `i` ou incluímos o parâmetro `$options: 'i'`
+Se tentarmos realizar a busca com a letra minúscula no nome, `db.times.find({'nome': /vasco/})`, não teriamos o retorno. Podemos normalizar nas duas formas.
 {% highlight python %}
 > db.times.find({'nome': /vasco/i}, {'_id': 0})
 { "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
@@ -126,7 +126,7 @@ Se tentarmos realizar a busca com a letra minúscula no nome, `db.times.find({'n
 { "nome" : "Vasco da Gama", "cidade" : "Rio de Janeiro", "estado" : "Rio de Janeiro" }
 {% endhighlight %}
 
-Realizando update nos dados
+* Realizando update nos dados
 {% highlight python %}
 > db.times.update(
     {'nome': "Atlético Mineiro"}, # filtrando pelo nome
@@ -142,14 +142,14 @@ Para consultas mais complexas temos que utilizar os operadores
     * $or
         
 * Comparação
-    $gt - maior que
-    $gte - maior ou igual que
-    $lt - menor que
-    $lte - menor ou igual que
-    $in - esteja entre uma faixa de valores
-    $not - não seja o valor especificado
+    * $gt - maior que
+    * $gte - maior ou igual que
+    * $lt - menor que
+    * $lte - menor ou igual que
+    * $in - esteja entre uma faixa de valores
+    * $not - não seja o valor especificado
 
-Note que a estrutura da sintaxe é um pouco diferente.
+Note que nesse caso a estrutura da sintaxe é um pouco diferente.
 {% highlight python %}
 > db.times.find({
     '$or': [
@@ -161,14 +161,15 @@ Note que a estrutura da sintaxe é um pouco diferente.
 
 ## Python com MongoDB
 
-Veremos agora como utilizar o _Python_ com _Mongo_. Temos a parte básica que é a conexão com o banco
+Veremos agora como utilizar o _Python_ com _Mongo_. 
+* Conexão com o banco
 {% highlight python %}
 from pymongo import MongoClient
 import pprint  # Mesmo resultado do `pretty()`
 
-client = MongoClient('localhost', 27017)
-db = client['portfolio']
-collection = db['times']
+client = MongoClient('localhost', 27017)  # Conectando ao banco
+db = client['portfolio']  # selecionando o banco de dados
+collection = db['times']  # selecionando a collection
 {% endhighlight %}
 
 A sintaxe que utilizamos no _Mongo_ será identica a que utilizaremos em _Python_, na maioria das vezes.
@@ -201,7 +202,7 @@ query = collection.find(
 )
 {% endhighlight %}
 
-Para realizarmos o update através do _Python_ utilizamos `update_one()` ou `update_many()`, caso utilizamos apenas `update()` recebemos a mensagem de que essa função foi descontinuada.
+Para realizarmos atualização através do _Python_ utilizamos `update_one()` ou `update_many()`, caso utilizamos apenas `update()` recebemos a mensagem de que essa função foi descontinuada.
 {% highlight python %}
 query = collection.update_one(
     {'cidade': 'BH'},
