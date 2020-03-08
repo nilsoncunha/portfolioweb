@@ -5,7 +5,7 @@ featured-img:
 categories: [Python, MongoDB]
 ---
 
-Quando começamos a utilizar uma nova ferramenta é comum nos primeiros momentos esquecermos um código e termos que procurar na documentação ou dar aquela _"Googada"_ para conseguir encontar como fazer aquilo novamente. Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
+Quando começamos a utilizar uma nova ferramenta é comum nos primeiros momentos esquecermos um código e termos que procurar na documentação ou dar aquela _"Googada"_ para conseguir encontrar como fazer aquilo novamente. Pois bem, também me vi assim em relação ao _MongoDB_ e utilizando o _Python_ para extrair essas informações. Com isso resolvi criar esse post com os principais comandos, borá lá? 
 
 ## MongoDB
 
