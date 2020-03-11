@@ -2,5 +2,5 @@
 layout: post
 title: "Prevendo nota de matemática do ENEM de 2016"
 featured-img: enem
-categories: [Machine Learning, Data Analysis]
+categories: [Machine Learning, Data Analysis, Python, Linear Regression, Random Forest]
 ---
