@@ -43,17 +43,17 @@ Na prova e na redação a maior pontuação é de mil pontos. Na distribuição 
 
 Na redação temos alguns pontos que são observados no caso de fugir ao tema, for anulada, entre outros. A tabela abaixo nos mostra como que ficaram essas situações
 
-Quantidade|Situação
----:|---
-13195|Sem problemas
-133|Em branco
-105|Fuga ao tema
-29|Parte desconectada
-17|Cópia texto motivador
-12|Texto insuficiente
-9|Fere direitos autorais
-7|Não atendimento ao tipo
-3|Anulada
+|Situação|Quantidade|
+|:---:|---:|
+|Sem problemas|13195|
+|Em branco|133|
+|Fuga ao tema|105|
+|Parte desconectada|29|
+|Cópia texto motivador|17|
+|Texto insuficiente|12|
+|Fere direitos autorais|9|
+|Não atendimento ao tipo|7|
+|Anulada|3|
 
 Acima mostramos como ficaram as notas de toda a base de dados, agora vamos verificar como que ficaram as notas das provas distribuídas por estado. Há uma boa quantidade de *outliers* (valores fora do comum), mas nossa mediana está bem próximo de 500, conforme citamos anteriormente.
 
