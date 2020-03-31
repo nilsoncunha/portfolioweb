@@ -8,6 +8,8 @@ Todos sabemos que o Exame Nacional do Ensino Médio (ENEM) é uma prova muito co
 
 > *Neste [notebook](https://colab.research.google.com/drive/1beela9VdVWEcLPEDXUoo7LmFzrmpYxdz) está toda minha análise e os tratamentos realizados. Tem também o [deploy](https://portfolio-enem.herokuapp.com/) que fiz no Heroku, é só preencher os campos e realizar a previsão*
 
+> Análise baseada em uma das atividades propostas pelo programa da Codenation Acelera Dev - Data Science de 2019.
+
 Vamos realizar a análise da base do ENEM de 2016, fazer a previsão da nota de matemática dos candidados e tentar saber como que se saíram, qual foi o estado com mais participantes e qual foi a melhor pontuação e mais. Então vamos lá!
 
 Para iniciar fiz a importação da base de [treino](https://dl.dropbox.com/s/7vexlzohz7j3qem/train.csv?dl=0) e de [teste](https://dl.dropbox.com/s/dsgzaemaau9g5z0/test.csv?dl=0).
