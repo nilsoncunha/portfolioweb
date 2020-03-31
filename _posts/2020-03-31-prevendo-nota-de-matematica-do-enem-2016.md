@@ -44,7 +44,7 @@ Na prova e na redação a maior pontuação é de mil pontos. Na distribuição 
 Na redação temos alguns pontos que são observados no caso de fugir ao tema, for anulada, entre outros. A tabela abaixo nos mostra como que ficaram essas situações
 
 Quantidade|Situação
-|---:|---|
+---:|---
 13195|Sem problemas
 133|Em branco
 105|Fuga ao tema
@@ -99,13 +99,13 @@ train_df['Q047'] = label_encoder.fit_transform(train_df['Q047'])
 Utilizei dois modelos de aprendizado supervisionado baseado em regressão, que foram *Random Forest* e *Linear Regression*, pois estamos querendo realizar a previsão da nota de matemática e supervisionado porque estamos passando a *feature* de resposta para realizar o treinamento. A outros modelos que poderiamos ter utilizado, mas vamos trabalhar apenas com esses.
 
 {% highlight python %}
-from sklearn.linear_model import LinearRegressionlr = LinearRegression()
+from sklearn.linear_model import LinearRegression
+lr = LinearRegression()
 lr.fit(train, target)
 
 lr_score = lr.score(train, target)
-
-Acurácia do modelo: 91.31%
 {% endhighlight %}
+Acurácia do modelo: 91.31%
 
 {% highlight python %}
 from sklearn.ensemble import RandomForestRegressor
@@ -113,9 +113,8 @@ rf = RandomForestRegressor(n_jobs=-1)
 rf.fit(train, target)
 
 rf_score = rf.score(train, target)
-
-Acurácia do modelo: 98.91%
 {% endhighlight %}
+Acurácia do modelo: 98.91%
 
 Tivemos nosso modelo *Random Forest* com o *score* melhor que o *Linear Regression*, então quer dizer que o primeiro é melhor que o segundo? ***Não***, isso quer dizer **apenas** que o primeiro melhor se adequou a nossa base e por tanto teve a melhor acurácia. 
 
