@@ -8,7 +8,7 @@ Todos sabemos que o Exame Nacional do Ensino Médio (ENEM) é uma prova muito co
 
 > *Neste [notebook](https://colab.research.google.com/drive/1beela9VdVWEcLPEDXUoo7LmFzrmpYxdz) está toda minha análise e os tratamentos realizados. Tem também o [deploy](https://portfolio-enem.herokuapp.com/) que fiz no Heroku, é só preencher os campos e realizar a previsão*
 
-Vamos realizar uma análise da base do ENEM de 2016, fazer a previsão da nota de matemática dos candidados e tentar saber como que se saíram, qual foi o estado com mais participantes e qual foi a melhor pontuação e mais. Então vamos lá!
+Vamos realizar a análise da base do ENEM de 2016, fazer a previsão da nota de matemática dos candidados e tentar saber como que se saíram, qual foi o estado com mais participantes e qual foi a melhor pontuação e mais. Então vamos lá!
 
 Para iniciar fiz a importação da base de [treino](https://dl.dropbox.com/s/7vexlzohz7j3qem/train.csv?dl=0) e de [teste](https://dl.dropbox.com/s/dsgzaemaau9g5z0/test.csv?dl=0).
 
@@ -41,7 +41,7 @@ Na prova e na redação a maior pontuação é de mil pontos. Na distribuição 
 
 ![notas](https://dl.dropbox.com/s/qlob22eyx0tlx8j/notas.png?dl=0)
 
-Na redação temos alguns pontos que são observados no caso de fugir ao tema, for anulada, entre outros. A tabela abaixo nos mostra como que ficaram essas situações
+Na redação temos alguns pontos que são observados no caso de fugir ao tema, for anulada, entre outros. A tabela abaixo nos mostra como que ficaram essas situações. *obs.: Não incluí em gráfico pois ficaria difícil visualizar os valores menores*
 
 |Situação|Quantidade|
 |:---:|---:|
@@ -55,7 +55,7 @@ Na redação temos alguns pontos que são observados no caso de fugir ao tema, f
 |Não atendimento ao tipo|7|
 |Anulada|3|
 
-Acima mostramos como ficaram as notas de toda a base de dados, agora vamos verificar como que ficaram as notas das provas distribuídas por estado. Há uma boa quantidade de *outliers* (valores fora do comum), mas nossa mediana está bem próximo de 500, conforme citamos anteriormente.
+Mostramos como ficaram as notas de toda a base de dados, agora vamos verificar como ficaram as notas das provas distribuídas por estado. Há uma boa quantidade de *outliers* (valores fora do comum), mas nossa mediana está bem próximo de 500, conforme citamos anteriormente no histograma.
 
 ![notas por estado](https://dl.dropbox.com/s/cp7qbaj9w6y369b/notas_estados.png?dl=0)
 
@@ -70,7 +70,7 @@ Isso vale também em relação a renda mensal da família. Quanto maior a renda,
 ### Tratando os dados e realizando a previsão
 
 Depois dessas análises, chegou a hora de prepar os dados para nossa previsão. 
-Primeiro realizei o tratamento imputando o valor 0 (zero) na prova daqueles candidatos que estavam com com status diferente de "Presente na prova".
+Primeiro realizei o tratamento imputando o valor 0 (zero) na prova daqueles candidatos que estavam com com status diferente de "1 = Presente na prova".
 
 {% highlight python %}
 train_df.loc[train_df['TP_PRESENCA_CH'] != 1, 'NU_NOTA_CH'] = train_df.loc[train_df['TP_PRESENCA_CH'] != 1, 'NU_NOTA_CH'].fillna(0)
@@ -78,12 +78,13 @@ train_df.loc[train_df['TP_PRESENCA_CN'] != 1, 'NU_NOTA_CN'] = train_df.loc[train
 train_df.loc[train_df['TP_PRESENCA_MT'] != 1, 'NU_NOTA_MT'] = train_df.loc[train_df['TP_PRESENCA_MT'] != 1, 'NU_NOTA_MT'].fillna(0)
 train_df.loc[train_df['TP_PRESENCA_LC'] != 1, 'NU_NOTA_LC'] = train_df.loc[train_df['TP_PRESENCA_LC'] != 1, 'NU_NOTA_LC'].fillna(0)
 train_df.loc[train_df['TP_PRESENCA_LC'] != 1, 'NU_NOTA_REDACAO'] = train_df.loc[train_df['TP_PRESENCA_LC'] != 1, 'NU_NOTA_REDACAO'].fillna(0)
+...
 {% endhighlight %}
 
 Como os modelos de *Machine Learning* não aceitam dados categóricos alterei as informações do sexo de 'F' e 'M' para 0 e 1, respectivamente.
 
 {% highlight python %}
-train_df['TP_SEXO'] = train_df['TP_SEXO'].map({'M': 1, 'F': 0})
+train_df['TP_SEXO'] = train_df['TP_SEXO'].map({'F': 0, 'M': 1})
 {% endhighlight %}
 
 Utilizei também o *Label Encoder* para alterarmos o tipo das respostas referente ao questionário socioeconômico. Por exemplo: na coluna que havia as respostas A, B, C e D passarão a ser 1, 2, 3 e 4. O *Label Encoder* se encarrega de fazer essa alteração.
@@ -96,7 +97,7 @@ train_df['Q025'] = label_encoder.fit_transform(train_df['Q025'])
 train_df['Q047'] = label_encoder.fit_transform(train_df['Q047'])
 {% endhighlight %}
 
-Utilizei dois modelos de aprendizado supervisionado baseado em regressão, que foram *Random Forest* e *Linear Regression*, pois estamos querendo realizar a previsão da nota de matemática e supervisionado porque estamos passando a *feature* de resposta para realizar o treinamento. A outros modelos que poderiamos ter utilizado, mas vamos trabalhar apenas com esses.
+Para o treino foram utilizados dois modelos de aprendizado supervisionado baseado em regressão, que foram *Random Forest* e *Linear Regression*, regressão pois estamos querendo realizar a previsão da nota de matemática e supervisionado porque estamos passando a *feature* de resposta para realizar o treinamento. A outros modelos que poderiamos ter utilizado, mas vamos trabalhar apenas com esses.
 
 {% highlight python %}
 from sklearn.linear_model import LinearRegression
@@ -116,7 +117,7 @@ rf_score = rf.score(train, target)
 {% endhighlight %}
 Acurácia do modelo: 98.91%
 
-Tivemos nosso modelo *Random Forest* com o *score* melhor que o *Linear Regression*, então quer dizer que o primeiro é melhor que o segundo? ***Não***, isso quer dizer **apenas** que o primeiro melhor se adequou a nossa base e por tanto teve a melhor acurácia. 
+O modelo *Random Forest* ficou com o *score* melhor que o *Linear Regression*, então quer dizer que o primeiro é melhor que o segundo? ***Não***, isso quer dizer **apenas** que o primeiro melhor se adequou a nossa base e por tanto teve a melhor acurácia. 
 
 Nunca podemos dizer que um modelo é melhor, mas sim que um se adequa melhor que o outro para o que foi proposto.
 
