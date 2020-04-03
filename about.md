@@ -4,7 +4,7 @@ title: Sobre
 permalink: /sobre/
 ---
 
-Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles. Foi com esse intuito que descidi fazer cursos e iniciar a pós-graduação em Ciência de Dados e Big Data.
+Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles. Foi com esse intuito que comecei a fazer cursos e iniciar a pós-graduação em Ciência de Dados e Big Data.
 
 * Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
 * Acelera Dev Data Science - Codenation _(12/2019)_
