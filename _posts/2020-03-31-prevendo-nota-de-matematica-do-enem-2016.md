@@ -101,23 +101,31 @@ train_df['Q047'] = label_encoder.fit_transform(train_df['Q047'])
 
 Para o treino foram utilizados dois modelos de aprendizado supervisionado baseado em regressão, que foram *Random Forest* e *Linear Regression*, regressão pois estamos querendo realizar a previsão da nota de matemática e supervisionado porque estamos passando a *feature* de resposta para realizar o treinamento. A outros modelos que poderiamos ter utilizado, mas vamos trabalhar apenas com esses.
 
+Como no desafio tive que submeter um arquivo csv com os dados, vou fazer aqui uma separação dos dados de treino para realizarmos a validação dos dados e verificar como está o desempenho do nosso modelo.
+
 {% highlight python %}
-from sklearn.linear_model import LinearRegression
+target = train['NU_NOTA_MT']
+train.drop(['NU_NOTA_MT', 'TP_PRESENCA_MT'], axis=1, inplace=True)
+X_train, X_test, y_train, y_test = train_test_split(train, target, test_size=0.25, random_state=42)
+{% endhighlight %}
+
+{% highlight python %}
 lr = LinearRegression()
-lr.fit(train, target)
+lr_model = lr.fit(X_train, y_train)
+y_pred = lr_model.predict(X_test)
 
-lr_score = lr.score(train, target)
+print(f'Acurácia do modelo: {round(lr_model.score(X_test, y_test), 3)}%')
 {% endhighlight %}
-Acurácia do modelo: 91.31%
+Acurácia do modelo: 0.917%
 
 {% highlight python %}
-from sklearn.ensemble import RandomForestRegressor
 rf = RandomForestRegressor(n_jobs=-1)
-rf.fit(train, target)
+rf_model = rf.fit(X_train, y_train)
+y_pred_rf = rf_model.predict(X_test)
 
-rf_score = rf.score(train, target)
+print(f'Acurácia do modelo: {round(rf_model.score(X_test, y_test), 3)}%')
 {% endhighlight %}
-Acurácia do modelo: 98.91%
+Acurácia do modelo: 0.925%
 
 O modelo *Random Forest* ficou com o *score* melhor que o *Linear Regression*, então quer dizer que o primeiro é melhor que o segundo? ***Não***, isso quer dizer **apenas** que o primeiro melhor se adequou a nossa base e por tanto teve a melhor acurácia. 
 
