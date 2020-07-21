@@ -225,6 +225,7 @@ padronizar = StandardScaler()
 padronizado = padronizar.fit_transform(train_df[['Fare','Ticket']])
 {% endhighlight %}
 
+<center>
 Pclass|Sex|Age|SibSp|Parch|Pronouns|Embarked_C|Embarked_Q|Embarked_S|FareStandard|TicketStandard
 ---|---|---|---|---|---|---|---|---|---|---
 3|1|22.0|1|0|6|0|0|1|-0.503291|0.922332
@@ -232,7 +233,7 @@ Pclass|Sex|Age|SibSp|Parch|Pronouns|Embarked_C|Embarked_Q|Embarked_S|FareStandar
 3|0|26.0|0|0|5|0|0|1|-0.490240|1.620266
 1|0|35.0|1|0|7|0|0|1|0.383183|-1.434095
 3|1|35.0|0|0|6|0|0|1|-0.487824|0.666902
-
+</center>
 <hr>
 
 ### Aplicação do modelo de *Machine Learning*
@@ -406,47 +407,47 @@ Explicando cada uma das métricas
 
 - **Acurácia**: Retorna os acertos obtidos dividido pela quantidade total dos dados, **ignora os erros cometidos**
 ```math
-$$
+$
 Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}
-$$
+$
 <br>
-$$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$$
+$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$
 <br>
-$$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$$
+$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$
 <br>
 ```
 
 - **Precisão**: Retorna o quanto o modelo está acertando, ou seja, quando retornar os sobreviventes se ele está acertando quais eram.
 ```math
-$$
+$
 Precisão = \frac{\text{VP}}{\text{VP + FP}}
-$$
+$
 <br>
-$$\text{Logistic Regression} = \frac{73}{73 + 19} = 0,7934$$
+$\text{Logistic Regression} = \frac{73}{73 + 19} = 0,7934$
 <br>
-$$\text{Random Forest} = \frac{80}{80 + 17} = 0,8247$$
+$\text{Random Forest} = \frac{80}{80 + 17} = 0,8247$
 <br>
 ```
 
 - **Recall**: Retorna se o modelo está acertando a classe a qual o valor pertence, ou seja, se é sobrevivente quanto que está prevendo corretamente que sobreviveu
 ```math
-$$
+$
 Recall = \frac{\text{VP}}{\text{VP + FN}}
-$$
+$
 <br>
-$$\text{Logistic Regression} = \frac{73}{73 + 29} = 0,7156$$
+$\text{Logistic Regression} = \frac{73}{73 + 29} = 0,7156$
 <br>
-$$\text{Random Forest} = \frac{80}{80 + 22} = 0,7843$$
+$\text{Random Forest} = \frac{80}{80 + 22} = 0,7843$
 <br>
 ```
 - **F1_Score**: Retorna a combinação ([média harmônica](https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica)) de precisão e recall. 
 ```math
-$$
+$
 \text{F1_Score} = 2 \times \frac{\text{precisão} \times \text{recall}}{\text{precisão + recall}}
-$$
+$
 <br>
-$$\text{Logistic Regression} = 2 \times \frac{0,7934 \times 0,7156}{0,7934 + 0,7156} = 0,7525$$
+$\text{Logistic Regression} = 2 \times \frac{0,7934 \times 0,7156}{0,7934 + 0,7156} = 0,7525$
 <br>
-$$\text{Random Forest} = 2 \times \frac{0,8247 \times 0,7843}{0,8247 + 0,7843} = 0,8040$$
+$\text{Random Forest} = 2 \times \frac{0,8247 \times 0,7843}{0,8247 + 0,7843} = 0,8040$
 <br>
 ```
