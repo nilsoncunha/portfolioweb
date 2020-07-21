@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Desafio Titanic Machine Learning"
+title: "Desafio Titanic"
 featured-img: titanic
 categories: [Machine Learning, Data Analysis, Logistic Regression, Random Forest, Confusion Matrix]
 ---
