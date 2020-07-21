@@ -421,7 +421,16 @@ Explicando cada uma das métricas
 
 ## Comnunicar o negócio
 
-Nesse caso minha "comunicação" com o negócio foi enviar os dados para o Kaggle e verificar qual a nota obtida. 
+Nesse caso minha "comunicação" com o negócio foi criar o arquivo csv e enviar os dados para o Kaggle e verificar qual a nota obtida
+
+{% highlight python %}
+rfc_kaggle = rfc.predict(test)
+
+submissao = pd.DataFrame({'PassengerId': passengerId, 'Survived': rfc_kaggle})
+#submissao.to_csv('submissao_rf_kaggle.csv', index=False)
+{% endhighlight %}
+
+<center><img src='https://www.dropbox.com/s/rxpe688czq9ctdh/submiss%C3%A3o_kaggle.jpg?raw=1'></center>
 
 Bem, a comunicação de fato não é isso, ela seria comunicar os responsáveis do negócio, entender se os resultados obtidos estão conforme o esperado, se será necessário a aquisição de mais dados para tentar melhorar o modelo, discutir como chegou nesses números, plotar as informações em alguma ferramenta de BI e por ai vai, com várias possibilidades. 
 
