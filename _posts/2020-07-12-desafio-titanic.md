@@ -15,8 +15,7 @@ Nesse caso, então vamos aproveitar e verificar o que os dados desse trágico ac
 > 1. Pegar o problema, que é sobre os passageiros do Titanic;
 > 1. obter os dados na plataforma do [Kaggle](https://www.kaggle.com/c/titanic);
 > 1. Análise dos dados;
-> 1. Limpeza dos dados;
-> 1. Preparar parar utilizar as bibliotecas de *Machine Learning*;
+> 1. Limpeza e preparação dos dados;
 > 1. Aplicação do *Machine Learning*;
 > 1. Verificar os resultados obtidos;
 > 1. Comunicar com o negócio.
