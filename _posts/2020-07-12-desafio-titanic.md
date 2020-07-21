@@ -22,7 +22,7 @@ Nesse caso, então vamos aproveitar e verificar o que os dados desse trágico ac
 
 <hr>
 
-### Obtendo os dados
+## Obtendo os dados
 
 *obs.: Você pode acompanhar o notebook completo por [aqui](https://colab.research.google.com/drive/10XbF-MI1mRXpQHTsPL5qfjYkeAkYZQVa?usp=sharing#scrollTo=0R2bspQckKZv)*
 
@@ -41,7 +41,7 @@ test = pd.read_csv('https://www.dropbox.com/s/<código_do_arquivo>/test.csv?raw=
 
 <hr>
 
-### Realizando a análise
+## Realizando a análise
 
 Há nos dados de treino 891 linhas e 12 colunas, já no de teste 418 linhas e 11 colunas
 {% highlight python %}
@@ -91,7 +91,7 @@ grid.map(plt.hist, 'Embarked').add_legend();
 
 <hr>
   
-### Limpeza e preparação
+## Limpeza e preparação
 
 Como temos os dados separados em treino e teste, para não esquecer de fazer o tratamento em uma base e na outra não, vou juntá-los para realizar o tratamento ao mesmo tempo.
 
@@ -234,7 +234,7 @@ Pclass|Sex|Age|SibSp|Parch|Pronouns|Embarked_C|Embarked_Q|Embarked_S|FareStandar
 
 <hr>
 
-### Aplicação do modelo de *Machine Learning*
+## Aplicação do modelo de *Machine Learning*
 
 Com a base tratada já posso implementar o modelo de Machine Learning, antes disso irei realizar a separação dos dados novamente em treino e teste.
 
@@ -277,7 +277,7 @@ rfc_previsao = rfc.predict(X_test)
 
 <hr>
 
-### Verificação das métricas
+## Verificação das métricas
 
 Após implementar os modelos, chegou a hora de avaliar se conseguiram realizar uma boa classificação ou não.
 
@@ -418,3 +418,13 @@ Explicando cada uma das métricas
 - **F1_Score**: Retorna a combinação ([média harmônica](https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica)) de precisão e recall. 
 
 <center><img src='https://www.dropbox.com/s/3aer71w8p0yrppw/f1_score.png?raw=1'></center>
+
+## Comnunicar o negócio
+
+Nesse caso minha "comunicação" com o negócio foi enviar os dados para o Kaggle e verificar qual a nota obtida. 
+
+Bem, a comunicação de fato não é isso, ela seria comunicar os responsáveis do negócio, entender se os resultados obtidos estão conforme o esperado, se será necessário a aquisição de mais dados para tentar melhorar o modelo, discutir como chegou nesses números, plotar as informações em alguma ferramenta de BI e por ai vai, com várias possibilidades. 
+
+Enfim, cabe a nós Cientista de Dados analisar todo esse contexto e verificar qual o problema que iremos resolver.
+
+Até mais, pessoal.
