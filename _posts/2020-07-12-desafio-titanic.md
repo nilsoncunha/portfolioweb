@@ -434,6 +434,6 @@ submissao = pd.DataFrame({'PassengerId': passengerId, 'Survived': rfc_kaggle})
 
 Bem, a comunicação de fato não é isso, ela seria comunicar os responsáveis do negócio, entender se os resultados obtidos estão conforme o esperado, se será necessário a aquisição de mais dados para tentar melhorar o modelo, discutir como chegou nesses números, plotar as informações em alguma ferramenta de BI e por ai vai, com várias possibilidades. 
 
-Enfim, cabe a nós Cientista de Dados analisar todo esse contexto e verificar qual o problema que iremos resolver.
+Enfim, cabe a nós, Cientista de Dados, analisar todo esse contexto e verificar qual o problema que iremos resolver.
 
 Até mais, pessoal.
