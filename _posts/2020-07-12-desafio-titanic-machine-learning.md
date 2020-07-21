@@ -145,7 +145,7 @@ freq       914
 Name: Embarked, dtype: object
 ```
 
-{% endhighlight %}
+{% highlight python %}
 # realizando a alteração
 train_df['Embarked'] = train_df['Embarked'].fillna('S')
 {% endhighlight %}
@@ -180,7 +180,8 @@ Com isso obtemos as informações
 
 {% highlight python %}
 train_df['Pronouns'].value_counts()
-
+{% endhighlight %}
+```
 Mr        757
 Miss      258
 Mrs       200
@@ -194,7 +195,7 @@ Ms          2
 Sir         1
 Capt        1
 Name: Pronouns, dtype: int64
-{% endhighlight %}
+```
 
 Agora alterar a variável Sex para 0 e 1 e também alterar a coluna Embarked que criará três novas colunas (serão três porque há apenas três valores). Podemos utilizar o OneHotEncoding ou até mesmo o getdummies do pandas.
 
