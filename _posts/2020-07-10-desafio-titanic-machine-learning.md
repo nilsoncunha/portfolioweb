@@ -11,6 +11,7 @@ Nesse caso, então vamos aproveitar e verificar o que os dados desse trágico ac
 
 <center><img src="https://www.dropbox.com/s/ima4y79h7upuxow/titanic.jpeg?raw=1"></center>
 
+
 Seguindo o *workflow* da ciência de dados realizei:
 1. Pegar o problema que é sobre os passageiros do Titanic;
 1. obter os dados na plataforma do [Kaggle](https://www.kaggle.com/c/titanic);
@@ -73,13 +74,13 @@ ax[0].set_xticklabels(['No', 'Yes'])
 for i in range(len(ax)):
     ax[i].set_ylabel('');
 {% endhighlight %}
-<center><img src='https://www.dropbox.com/s/qw70gxrxrnucr1o/sobreviventes.png?raw=1'>
+<center><img src='https://www.dropbox.com/s/qw70gxrxrnucr1o/sobreviventes.png?raw=1'></center>
   
 {% highlight python %}
 grid = sns.FacetGrid(data=train, col='Pclass', row='Sex', hue='Survived')
 grid.map(plt.hist, 'Embarked').add_legend();
 {% endhighlight %}
-<center><img src='https://www.dropbox.com/s/5itasy2vbchyxpq/facetgrid.png?raw=1'>
+<center><img src='https://www.dropbox.com/s/5itasy2vbchyxpq/facetgrid.png?raw=1'></center>
   
 ### Limpeza e preparação
 
@@ -359,7 +360,7 @@ for i in range(len(cm)):
     ax[i].set_ylabel('Valor real')
 {% endhighlight %}
 
-<center><img src='https://www.dropbox.com/s/axozkxr9xx41byz/matriz_confus%C3%A3o.png?raw=1'>
+<center><img src='https://www.dropbox.com/s/axozkxr9xx41byz/matriz_confus%C3%A3o.png?raw=1'></center>
   
 O modelo de *Logistic Regression* acerta (VP) a previsão de que tiveram 73 pessoas sobreviventes, porém se engana (FN) ao predizer que 29 não sobreviveram.
 
