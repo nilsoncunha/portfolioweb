@@ -417,11 +417,7 @@ $$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$$
 
 - **Precisão**: Retorna o quanto o modelo está acertando, ou seja, quando retornar os sobreviventes se ele está acertando quais eram.
 
-$$Precisão = \frac{\text{VP}}{\text{VP + FP}}$$
-
-$$\text{Logistic Regression} = \frac{73}{73 + 19} = 0,7934$$
-
-$$\text{Random Forest} = \frac{80}{80 + 17} = 0,8247$$
+<center><img src='https://www.dropbox.com/s/czbol2oe73mejav/precisao.png?raw=1'></center>
 
 
 - **Recall**: Retorna se o modelo está acertando a classe a qual o valor pertence, ou seja, se é sobrevivente quanto que está prevendo corretamente que sobreviveu
