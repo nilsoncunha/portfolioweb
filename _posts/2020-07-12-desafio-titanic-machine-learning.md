@@ -406,33 +406,16 @@ Explicando cada uma das métricas
 
 - **Acurácia**: Retorna os acertos obtidos dividido pela quantidade total dos dados, **ignora os erros cometidos**
 
-$$Texto Teste$$
-
-$$Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}$$
-
-$$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$$
-
-$$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$$
-
+<center><img src='https://www.dropbox.com/s/c5rc5bzoxzyzpib/acuracia.png?raw=1'></center>
 
 - **Precisão**: Retorna o quanto o modelo está acertando, ou seja, quando retornar os sobreviventes se ele está acertando quais eram.
 
 <center><img src='https://www.dropbox.com/s/czbol2oe73mejav/precisao.png?raw=1'></center>
 
-
 - **Recall**: Retorna se o modelo está acertando a classe a qual o valor pertence, ou seja, se é sobrevivente quanto que está prevendo corretamente que sobreviveu
 
-$$Recall = \frac{\text{VP}}{\text{VP + FN}}$$
-
-$$\text{Logistic Regression} = \frac{73}{73 + 29} = 0,7156$$
-
-$$\text{Random Forest} = \frac{80}{80 + 22} = 0,7843$$
-
+<center><img src='https://www.dropbox.com/s/jst5moimjkbc4rr/recall.png?raw=1></center>
 
 - **F1_Score**: Retorna a combinação ([média harmônica](https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica)) de precisão e recall. 
-$$\text{F1_Score} = 2 \times \frac{\text{precisão} \times \text{recall}}{\text{precisão + recall}}$$
-<br>
-$$\text{Logistic Regression} = 2 \times \frac{0,7934 \times 0,7156}{0,7934 + 0,7156} = 0,7525$$
-<br>
-$$\text{Random Forest} = 2 \times \frac{0,8247 \times 0,7843}{0,8247 + 0,7843} = 0,8040$$
-<br>
+
+<center><img src='https://www.dropbox.com/s/3aer71w8p0yrppw/f1_score.png?raw=1></center>
