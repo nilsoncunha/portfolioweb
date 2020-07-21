@@ -5,28 +5,29 @@ featured-img: titanic
 categories: [Machine Learning, Data Analysis, Logistic Regression, Random Forest, Confusion Matrix]
 ---
 
-Pode ser que algumas pessoas não tenham assistido ao filme do **Titanic**, mas se estiver na área de Ciência de Dados provavelmente já tenha escutado pelo tão famoso desafio no [Kaggle](https://www.kaggle.com/c/titanic) que dizem ser a "porta de entrada" para os desafios de Machine Learning.
+Pode ser que algumas pessoas não tenham assistido ao filme do **Titanic** (*será?*), mas se estiver na área de Ciência de Dados provavelmente já tenha ouvido pelo tão famoso desafio no [Kaggle](https://www.kaggle.com/c/titanic) que dizem ser a "porta de entrada" para os desafios de Machine Learning.
 
 Nesse caso, então vamos aproveitar e verificar o que os dados desse trágico acidente tem a nos dizer, ou melhor, o que conseguimos retirar deles.
 
-<center><img src="https://www.dropbox.com/s/ima4y79h7upuxow/titanic.jpeg?raw=1"></center>
+<center><img src="https://www.dropbox.com/s/ima4y79h7upuxow/titanic.jpeg?raw=1"></center><br>
 
+> Seguirei o *workflow* da ciência de dados, que é:
+> 1. Pegar o problema, que é sobre os passageiros do Titanic;
+> 1. obter os dados na plataforma do [Kaggle](https://www.kaggle.com/c/titanic);
+> 1. Análise dos dados;
+> 1. Limpeza dos dados;
+> 1. Preparar parar utilizar as bibliotecas de *Machine Learning*;
+> 1. Aplicação do *Machine Learning*;
+> 1. Verificar os resultados obtidos;
+> 1. Comunicar com o negócio.
 
-Seguindo o *workflow* da ciência de dados realizei:
-1. Pegar o problema que é sobre os passageiros do Titanic;
-1. obter os dados na plataforma do [Kaggle](https://www.kaggle.com/c/titanic);
-1. Análise dos dados;
-1. Limpeza dos dados;
-1. Preparar parar utilizar as bibliotecas de *Machine Learning*;
-1. Aplicação do *Machine Learning*;
-1. Verificar os resultados obtidos;
-1. Comunicar com o negócio.
+<hr>
 
 ### Obtendo os dados
 
 *obs.: Você pode acompanhar o notebook completo por [aqui](https://colab.research.google.com/drive/10XbF-MI1mRXpQHTsPL5qfjYkeAkYZQVa?usp=sharing#scrollTo=0R2bspQckKZv)*
 
-O que gosto de utilizar nessas análises é a plataforma do Google Colab importando o arquivo do Dropbox, que consigo uma melhor organização para meu portfólio. Já vi algumas pessoas com dúvidas em como importar os dados dessa forma e é bem simples.
+O que gosto de utilizar nessas análises é a plataforma do Google Colab importando o arquivo do Dropbox, que consigo uma melhor organização para meu portfólio. Já vi algumas pessoas com dúvidas em como importar os dados dessa forma, porém é bem simples.
 
 - 1) no dropbox clicar para compartilhar o arquivo e copiar o link;
 - 2) o arquivo virá com o final `nome_arquivo.csv?dl=0` modifique o `dl=0` para `raw=1`
@@ -37,9 +38,11 @@ train = pd.read_csv('https://www.dropbox.com/s/<código_do_arquivo>/train.csv?ra
 test = pd.read_csv('https://www.dropbox.com/s/<código_do_arquivo>/test.csv?raw=1')
 {% endhighlight %}
 
+<hr>
+
 ### Realizando a análise
 
-Temos na tabela de treino 891 linhas e 12 colunas, já na de teste 418 linhas e 11 colunas
+Há nos dados de treino 891 linhas e 12 colunas, já no de teste 418 linhas e 11 colunas
 {% highlight python %}
 print(f'{train.shape[0]} linhas e {train.shape[1]} colunas \n')
 print(f'{test.shape[0]} linhas e {test.shape[1]} colunas')
@@ -59,9 +62,10 @@ fig, ax = plt.subplots(1, 2, figsize=(15,4))
 sns.heatmap(train.corr(method='spearman'), annot=True, fmt='.2f', ax=ax[0]);
 sns.heatmap(train.corr(method='pearson'), annot=True, fmt='.2f', ax=ax[1]);
 {% endhighlight %}
-<center><img src="https://www.dropbox.com/s/yj0fsea72l6bmls/correlation.png?raw=1"></center>
 
-Ao todo tivemos uma maior taxa de não sobreviventes que dentre eles a maioria era de homens, de pessoas que estavam na terceira classe e daquelas que embarcaram em *Southampton*. Outro aspecto interessante é que a maioria que embarcaram em *Southampton* foram da terceira classe.
+<center><img src="https://www.dropbox.com/s/yj0fsea72l6bmls/correlation.png?raw=1"></center><br>
+
+Ao todo tivemos uma maior taxa de não sobreviventes e dentre eles a maioria era de homens, de pessoas que estavam na terceira classe e daquelas que embarcaram em *Southampton*. Outro aspecto interessante é que a maioria que embarcaram em *Southampton* foram da terceira classe.
 
 {% highlight python %}
 colunas = ['Survived', 'Sex', 'Pclass', 'Embarked']
@@ -74,13 +78,17 @@ ax[0].set_xticklabels(['No', 'Yes'])
 for i in range(len(ax)):
     ax[i].set_ylabel('');
 {% endhighlight %}
-<center><img src='https://www.dropbox.com/s/qw70gxrxrnucr1o/sobreviventes.png?raw=1'></center>
+
+<center><img src='https://www.dropbox.com/s/qw70gxrxrnucr1o/sobreviventes.png?raw=1'></center><br>
   
 {% highlight python %}
 grid = sns.FacetGrid(data=train, col='Pclass', row='Sex', hue='Survived')
 grid.map(plt.hist, 'Embarked').add_legend();
 {% endhighlight %}
-<center><img src='https://www.dropbox.com/s/5itasy2vbchyxpq/facetgrid.png?raw=1'></center>
+
+<center><img src='https://www.dropbox.com/s/5itasy2vbchyxpq/facetgrid.png?raw=1'></center><br>
+
+<hr>
   
 ### Limpeza e preparação
 
@@ -100,7 +108,8 @@ train.drop('Survived', axis=1, inplace=True)
 train_df = pd.concat([train, test], axis=0).reset_index(drop=True)
 {% endhighlight %}
 
-Vamos remover agora a variável PassengerId, precisaremos dela somente no teste para salvar o modelo e subir o arquivo para o Kaggle
+Vamos remover agora a variável `PassengerId`, precisaremos dela somente no teste para salvar o modelo e subir o arquivo para o Kaggle
+
 {% highlight python %}
 train_df.drop('PassengerId', axis=1, inplace=True)
 {% endhighlight %}
@@ -109,12 +118,34 @@ Novamente visualizando os dados nulos, a coluna Cabin está com mais de 70% de d
 {% highlight python %}
 train_df.isnull().mean().sort_values(ascending=False)
 {% endhighlight %}
+```
+Cabin       0.774637
+Age         0.200917
+Embarked    0.001528
+Fare        0.000764
+Ticket      0.000000
+Parch       0.000000
+SibSp       0.000000
+Sex         0.000000
+Name        0.000000
+Pclass      0.000000
+dtype: float64
+```
 
 Para a Embarked irei alterar o valor nulo pelo mais frequente.
 {% highlight python %}
 # verificando o valor mais frequente
 train_df['Embarked'].describe()
+{% endhighlight %}
+```
+count     1307
+unique       3
+top          S
+freq       914
+Name: Embarked, dtype: object
+```
 
+{% endhighlight %}
 # realizando a alteração
 train_df['Embarked'] = train_df['Embarked'].fillna('S')
 {% endhighlight %}
