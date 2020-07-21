@@ -414,8 +414,8 @@ Explicando cada uma das métricas
 
 - **Recall**: Retorna se o modelo está acertando a classe a qual o valor pertence, ou seja, se é sobrevivente quanto que está prevendo corretamente que sobreviveu
 
-<center><img src='https://www.dropbox.com/s/jst5moimjkbc4rr/recall.png?raw=1></center>
+<center><img src='https://www.dropbox.com/s/jst5moimjkbc4rr/recall.png?raw=1'></center>
 
 - **F1_Score**: Retorna a combinação ([média harmônica](https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica)) de precisão e recall. 
 
-<center><img src='https://www.dropbox.com/s/3aer71w8p0yrppw/f1_score.png?raw=1></center>
+<center><img src='https://www.dropbox.com/s/3aer71w8p0yrppw/f1_score.png?raw=1'></center>
