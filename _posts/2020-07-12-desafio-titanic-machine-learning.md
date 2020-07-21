@@ -407,6 +407,8 @@ Explicando cada uma das métricas
 
 - **Acurácia**: Retorna os acertos obtidos dividido pela quantidade total dos dados, **ignora os erros cometidos**
 $$Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}$$
+
+katex.render("Acurácia = \\frac{\\text{VP + VN}}{\\text{VP + VN + FP + FN}}", /* element */, {"displayMode":true,"leqno":false,"fleqn":false,"throwOnError":true,"errorColor":"#cc0000","strict":"warn","trust":false,"macros":{"\\f":"f(#1)"}})
 <br>
 $$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$$
 <br>
