@@ -406,15 +406,12 @@ Explicando cada uma das métricas
 
 - **Acurácia**: Retorna os acertos obtidos dividido pela quantidade total dos dados, **ignora os erros cometidos**
 
-$$\LaTeX code$$   (for display)
-\\[\LaTeX code\\] (also for display)
-\\(\LaTeX code\\) (for inline)
-
-$$\Latex Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}$$
+$$Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}$$
 
 $$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$$
 
 $$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$$
+
 
 - **Precisão**: Retorna o quanto o modelo está acertando, ou seja, quando retornar os sobreviventes se ele está acertando quais eram.
 
