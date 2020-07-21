@@ -329,10 +329,9 @@ print(lr_report)
 print(20*'-', '\n')
 print('Report Random Forest: \n')
 print(rf_report)
-{% endhighlight %}
 
 Report Logistic Regression: 
-{% highlight python %}
+
               precision    recall  f1-score   support
 
            0       0.84      0.89      0.86       166
@@ -406,7 +405,7 @@ O que uma métrica tem de melhor que a outra? Isso vai depender mais do que voc�
 Explicando cada uma das métricas
 
 - **Acurácia**: Retorna os acertos obtidos dividido pela quantidade total dos dados, **ignora os erros cometidos**
-{% highlight math %}
+```math
 $$
 Acurácia = \frac{\text{VP + VN}}{\text{VP + VN + FP + FN}}
 $$
@@ -415,10 +414,10 @@ $$\text{Logistic Regression} = \frac{73 + 147}{73 + 29 + 19 + 147} = 0,8208$$
 <br>
 $$\text{Random Forest} = \frac{80 + 149}{80 + 22 + 17 + 149} = 0,8544$$
 <br>
-{% endhighlight %}
+```
 
 - **Precisão**: Retorna o quanto o modelo está acertando, ou seja, quando retornar os sobreviventes se ele está acertando quais eram.
-
+```math
 $$
 Precisão = \frac{\text{VP}}{\text{VP + FP}}
 $$
@@ -427,9 +426,10 @@ $$\text{Logistic Regression} = \frac{73}{73 + 19} = 0,7934$$
 <br>
 $$\text{Random Forest} = \frac{80}{80 + 17} = 0,8247$$
 <br>
+```
 
 - **Recall**: Retorna se o modelo está acertando a classe a qual o valor pertence, ou seja, se é sobrevivente quanto que está prevendo corretamente que sobreviveu
-
+```math
 $$
 Recall = \frac{\text{VP}}{\text{VP + FN}}
 $$
@@ -438,9 +438,9 @@ $$\text{Logistic Regression} = \frac{73}{73 + 29} = 0,7156$$
 <br>
 $$\text{Random Forest} = \frac{80}{80 + 22} = 0,7843$$
 <br>
-
+```
 - **F1_Score**: Retorna a combinação ([média harmônica](https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica)) de precisão e recall. 
-
+```math
 $$
 \text{F1_Score} = 2 \times \frac{\text{precisão} \times \text{recall}}{\text{precisão + recall}}
 $$
@@ -449,3 +449,4 @@ $$\text{Logistic Regression} = 2 \times \frac{0,7934 \times 0,7156}{0,7934 + 0,7
 <br>
 $$\text{Random Forest} = 2 \times \frac{0,8247 \times 0,7843}{0,8247 + 0,7843} = 0,8040$$
 <br>
+```
