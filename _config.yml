@@ -47,6 +47,8 @@ service_worker: true
 
 # BUILD SETTINGS
 markdown: kramdown
+kramdown: # utilizado para exibir as fórmulas
+    math_engine: katex
 highlighter: rouge # or pygments or null
 # theme: jekyll-sleek # Uncomment if you're using the theme as a ruby gem
 exclude:
