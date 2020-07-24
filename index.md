@@ -5,5 +5,5 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
 layout: default
-title: Portfólio Ciência de Dados
+title: Ciência de Dados
 ---
