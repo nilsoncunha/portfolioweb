@@ -5,5 +5,6 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
 layout: default
+featured-img: home_lg
 title: Ciência de Dados
 ---
