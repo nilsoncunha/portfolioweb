@@ -1,7 +1,8 @@
 # SITE CONFIGURATION
 encoding: UTF-8
 title: Nilson Cunha # your site title
-author: nilsoncunha # You :P
+author: Nilson Cunha # You :P
+lang: pt-BR # alterando o local para pt_BR
 description: # Meta description of Homepage
   Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado à Ciência de Dados, 
   aplicação de Machine Learning, entre outros.
