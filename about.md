@@ -4,7 +4,7 @@ title: Sobre
 permalink: /sobre/
 ---
 
-Uma pessoa que gostou de trabalhar com dados e viu que pode ser gerado muito valor através deles. Foi com esse intuito que comecei a fazer cursos e iniciar a pós-graduação em Ciência de Dados e Big Data.
+Sou Pós-Graduando em Ciência de Dados e Big Data e venho aprofundando nesse tema tão valioso para as empresas que é obter informação, e o mais importante, direcionamento através dos dados.
 
 * Pós-Graduando em Ciência de Dados e Big Data pela PUC Minas. _(10/2020)_
 * Analista de Machine Learning - IGTI - _(06/2020)_
