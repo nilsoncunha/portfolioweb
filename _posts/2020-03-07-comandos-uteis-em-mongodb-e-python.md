@@ -142,6 +142,7 @@ Para consultas mais complexas temos que utilizar os operadores
     * $or
         
 * Comparação
+    * $eq - igual
     * $gt - maior que
     * $gte - maior ou igual que
     * $lt - menor que
