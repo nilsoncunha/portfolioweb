@@ -1,4 +1,4 @@
-Esse código pega a imagem que está na pasta e gera outras imagens no tamanho e com o nome correto para serem exibidas no portfólio.
+Esse script pega a imagem que está na pasta (mesmo local do script) e gera outras imagens no tamanho e com o nome correto para serem exibidas no portfólio.
 
 Ele salva as imagens em uma pasta chamada _convertida_, caso não tenha será necessário criar.
 
