@@ -4,8 +4,8 @@ title: Portfólio Nilson Cunha # your site title
 author: Nilson Cunha # You :P
 lang: pt-BR # alterando o local para pt_BR
 description: # Meta description of Homepage
-  Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado à Ciência de Dados, 
-  aplicação de Machine Learning, entre outros.
+  Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado à Engenharia de dados,
+  Ciência de Dados, aplicação de Machine Learning, entre outros.
 baseurl: "/portfolioweb" # the subpath of your site, e.g. /blog
 url: "https://nilsoncunha.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -27,8 +27,8 @@ navigation: # Navigation links
   - {name: 'Contato', link: '/contato'}
 
 tagline:
-  Aqui você encontrará meus projetos, análises e estudos relacionado à Ciência de Dados, 
-  aplicação de Machine Learning, entre outros.
+  Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado à Engenharia de dados,
+  Ciência de Dados, aplicação de Machine Learning, entre outros.
 
 hero_img: posts/home_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
