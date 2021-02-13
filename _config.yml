@@ -27,8 +27,7 @@ navigation: # Navigation links
   - {name: 'Contato', link: '/contato'}
 
 tagline:
-  Neste portfólio você poderá acompanhar meus projetos, análises e estudos relacionado à Engenharia de dados,
-  Ciência de Dados, aplicação de Machine Learning, entre outros.
+  Aqui você encontrará meus projetos, análises e estudos relacionado à Engenharia de Dados, Ciência de Dados, aplicação de Machine Learning, entre outros.
 
 hero_img: posts/home_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
