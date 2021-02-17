@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Como foi o desafio do IGTI"
-featured-img: em_breve
+featured-img: desafio_igti
 categories: [Python, MongoDB, Engenheiro Dados]
 ---
 
