@@ -31,7 +31,7 @@ Na _[Dag]('https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#d
 
 O código para essa execução ficou assim.
 
-{% highlight %}
+{% highlight python %}
 ibge = dados_ibge()
 api = dados_api()
 s3_ibge = upload_s3(ibge)
