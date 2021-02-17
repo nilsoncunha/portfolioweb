@@ -21,13 +21,16 @@ _obs.: o próprio Airflow se encarrega de ocultar o campo valor quando a variáv
 
 <center><img src="https://www.dropbox.com/s/xjr6usd08bpg56r/igti_v2_variables.jpg?raw=1"></center>
 
+
 Feito isso, criei a instancia no RDS para simular meu Data Warehouse.
 
 <center><img src="https://www.dropbox.com/s/d0edfbgj9uunspq/igti_v2_aws_postgres.png?raw=1"></center>
 
+
 Na _[Dag]('https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#dags')_ observamos que, como não há dependência entre entre as funções consigo paralelizar a execução e simultaneamente fazer a captura e tratamento dos dados das api's, logo após subir os arquivos para o S3 e fazer a ingestão no DW.
 
 <center><img src='https://www.dropbox.com/s/6227lavsj8jsdsu/igti_v2_grafico.png?raw=1'></center>
+
 
 O código para essa execução ficou assim.
 
@@ -45,5 +48,6 @@ desafio_final = desafio_final_pipeline()
 Para extrair as informações utilizei o [Metabase]('https://www.metabase.com/') gerei alguns gráficos e respondi questões relacionadas ao desafio.
 
 <center><img src="https://www.dropbox.com/s/lqmeo8krgmponq1/igti_v2_painel_metabase.png?raw=1"></center>
+
 
 E é isso pessoal, até uma próxima.
