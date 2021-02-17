@@ -6,5 +6,5 @@
 #
 layout: default
 featured-img: home_lg
-title: Portfólio - Nilson Cunha
+title: Portfólio
 ---
